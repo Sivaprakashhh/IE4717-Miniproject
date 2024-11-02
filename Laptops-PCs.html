@@ -20,7 +20,7 @@
     color: #D4C300; /* Optional: Change color on hover */
 }
 main {
-    padding-top: 0px;
+    padding-top: 20px;
     display: flex;
     justify-content: center;
 }
@@ -57,18 +57,26 @@ nav ul li a{
 </style>
 <body>
 
-  <!-- Header -->
-  <header>
+   <!-- Header -->
+   <header>
     <div class="logo">
-        <span class="logo-text"><a href="Homepage.html">TeX</a></span>
+        <span class="logo-text">TeX</span>
     </div>
     <div class="search-bar">
         <input type="text" placeholder="Search for products">
-        <button type="submit">&#128269;</button>
+        <button type="submit">
+            <img src="Images/Others/search.png" alt="Search Icon" class="search-icon">
+            </button>
     </div>
     <div class="user-cart">
-        <div class="login">Login</div>
-        <div class="cart">Cart (0)</div>
+        <div class="login">
+            <img src="Images/Others/user.png" alt="User Icon" class="icon">
+            <div class="text">Login</div>
+        </div>
+        <div class="cart">
+            <img src="Images/Others/cart.png" alt="Cart Icon" class="icon">
+            <div class="text">Cart (0)</div>
+        </div>
     </div>
 </header>
 

@@ -11,6 +11,12 @@ body {
 }
 
 /* Header */
+.icon {
+    width: 20px; /* Adjust size as needed */
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px; /* Space between icon and text */
+}
 header {
     display: flex;
     align-items: center;
@@ -38,34 +44,76 @@ header {
 .search-bar {
     display: flex;
     align-items: center;
-    width: 50%;
+    
 }
 
-.search-bar input {
-    width: 100%;
+.search-bar input[type="text"] {
     padding: 8px;
+    font-size: 14px;
     border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    width: 500px;
 }
 
 .search-bar button {
-    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Remove default padding */
     border: none;
-    background-color: #FFD700;
-    color: #333;
-    border-radius: 0 5px 5px 0;
+    background-color: #ECE52C; /* Match background to input if necessary */
     cursor: pointer;
+    border-radius: 0 4px 4px 0;
+}
+.search-icon {
+    width: 20px; /* Adjust the size as needed */
+    height: 20px;
+    margin: 5px;
+}
+
+    /* Header */
+.icon {
+    width: 20px; /* Adjust size as needed */
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px; /* Space between icon and text */
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #e6e6e6;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    background-color: #3e5c94; /* Dark blue background */
+    border-radius: 50%; /* Makes the oval shape */
+}
+.logo-text {
+    font-size: 60px;
+    font-weight: bold;
+    color: #ECE52C;
+    font-family: Arial, sans-serif;
+    
 }
 
 .user-cart {
     display: flex;
-    gap: 20px;
-    align-items: center;
+    gap: 20px; /* Space between login and cart sections */
 }
 
-.user-cart .login, .user-cart .cart {
-    color: #333;
+.login, .cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     cursor: pointer;
+
 }
 
 /* Navigation Bar */
