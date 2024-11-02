@@ -32,12 +32,14 @@ header {
     height: 50px;
     background-color: #3e5c94; /* Dark blue background */
     border-radius: 50%; /* Makes the oval shape */
+    
 }
 .logo-text {
     font-size: 60px;
     font-weight: bold;
     color: #ECE52C;
     font-family: Arial, sans-serif;
+   
     
 }
 
