@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeX Electronics</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* Main content styling */
+.logo-text a {
+    font-size: 60px;
+    font-weight: bold;
+    color: #ECE52C;
+    font-family: Arial, sans-serif;
+    text-decoration: none; /* This removes the underline on the link */
+}
+
+.logo-text a:hover {
+    color: #D4C300; /* Optional: Change color on hover */
+}
+main {
+    padding-top: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 80%;
+    
+}
+
+.product {
+    
+    border: 2px solid black;
+    text-align: center;
+    padding: 15px;
+}
+
+.product img {
+    max-width: 120px;
+    max-height: 120px;
+    margin-bottom: 10px;
+}
+
+.product p {
+    font-size: 24px;
+    font-weight: bold;
+}
+nav ul li a{
+    text-decoration: none;
+    
+}
+</style>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+        <span class="logo-text"><a href="Homepage.html">TeX</a></span>
+    </div>
+    <div class="search-bar">
+        <input type="text" placeholder="Search for products">
+        <button type="submit">&#128269;</button>
+    </div>
+    <div class="user-cart">
+        <div class="login">Login</div>
+        <div class="cart">Cart (0)</div>
+    </div>
+</header>
+
+<!-- Navigation Bar -->
+<nav>
+    <ul>
+        <li>Store</li>
+        <li>TV</li>
+        <li><a href="Laptops-PCs.html" style="color: #ECE52C;">Laptops & PCs</a></li>
+        <li>Smartphones</li>
+        <li>Contact</li>
+    </ul>
+</nav>
+<!-- Main Content -->
+    
+    <main>
+        <div class="product-grid">
+            <div class="product">
+                <img src="Images/Laptop/image 1.png" alt="TeX Laptop">
+                <p>TeX LAPTOP</p>
+            </div>
+            <div class="product">
+                <img src="Images/Laptop/lg.png" alt="LG Laptop">
+                <p>LG LAPTOP</p>
+            </div>
+            <div class="product">
+                <img src="Images/Laptop/razergaming.png" alt="Razer Gaming Laptop">
+                <p>RAZER GAMING LAPTOP</p>
+            </div>
+            <div class="product">
+                <img src="Images/Laptop/samsungcurved.png" alt="Samsung Curved Monitor">
+                <p>SAMSUNG CURVED MONITOR</p>
+            </div>
+            <div class="product">
+                <img src="Images/Laptop/acermonitor.png" alt="Acer Monitor">
+                <p>ACER MONITOR</p>
+            </div>
+            <div class="product">
+                <img src="Images/Laptop/texcurvedultra.png" alt="TeX Curved Ultra">
+                <p>TeX CURVED ULTRA</p>
+            </div>
+        </div>
+    </main>
+          
+  <!-- Footer -->
+  <footer>
+    © 2024 TeX
+</footer>
+
+</body>
+</html>
