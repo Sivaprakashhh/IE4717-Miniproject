@@ -1,0 +1,158 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f2f2f2;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #e6e6e6;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    background-color: #3e5c94; /* Dark blue background */
+    border-radius: 50%; /* Makes the oval shape */
+}
+.logo-text {
+    font-size: 60px;
+    font-weight: bold;
+    color: #ECE52C;
+    font-family: Arial, sans-serif;
+    
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-bar button {
+    padding: 8px;
+    border: none;
+    background-color: #FFD700;
+    color: #333;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.user-cart {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.user-cart .login, .user-cart .cart {
+    color: #333;
+    cursor: pointer;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #0078d7;
+    padding: 10px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul li {
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Main Content */
+main {
+    text-align: center;
+    margin: 20px;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin: 10px;
+    padding: 30px;
+}
+
+.product img {
+    width: 200px;
+    height: 200px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+
+/* Discount Banner */
+.discount-banner {
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.discount-banner h2 {
+    color: black;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.discount-banner p {
+    color: black;
+    font-size: 24px;
+}
+
+.discount-banner span {
+    font-size: 16px;
+}
+
+.discount-banner strong {
+    font-size: 48px;
+}
+
+.discount-banner button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: #0078d7;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
