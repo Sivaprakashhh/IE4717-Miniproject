@@ -28,34 +28,43 @@ main {
     justify-content: center;
 }
 
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    width: 80%;
-    
+main {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.product-grid-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 30px; /* Adds spacing between table cells similar to gap */
 }
 
-.product {
-    
+.product-grid-table td {
     border: 2px solid black;
     text-align: center;
     padding: 15px;
+    
+    
 }
 
-.product img {
+.product-grid-table img {
     max-width: 120px;
     max-height: 120px;
     margin-bottom: 10px;
 }
 
-.product p {
+.product-grid-table p {
     font-size: 24px;
     font-weight: bold;
 }
-nav ul li a{
+
+nav ul li a {
     text-decoration: none;
-    
+}
+
+.product-grid-table a {
+    text-decoration: none;
+    color: black;
 }
 </style>
 <body>
@@ -68,10 +77,12 @@ nav ul li a{
         </a>
     </div>
     <div class="search-bar">
-        <input type="text" placeholder="Search for products">
+        <form action="search.php" method="POST">
+        <input type="text" name="query" placeholder="Search for products">
         <button type="submit">
             <img src="Images/Others/search.png" alt="Search Icon" class="search-icon">
             </button>
+        </form> 
     </div>
     <div class="user-cart">
         <a href="Login.html">
@@ -101,35 +112,51 @@ nav ul li a{
 </nav>
 <!-- Main Content -->
     
-    <main>
-        <div class="product-grid">
-            <div class="product">
-                <img src="Images/Laptop/image 1.png" alt="TeX Laptop">
-                <p>TeX LAPTOP</p>
-            </div>
-            <div class="product">
-                <img src="Images/Laptop/lg.png" alt="LG Laptop">
-                <p>LG LAPTOP</p>
-            </div>
-            <div class="product">
-                <img src="Images/Laptop/razergaming.png" alt="Razer Gaming Laptop">
-                <p>RAZER GAMING LAPTOP</p>
-            </div>
-            <div class="product">
-                <img src="Images/Laptop/samsungcurved.png" alt="Samsung Curved Monitor">
-                <p>SAMSUNG CURVED MONITOR</p>
-            </div>
-            <div class="product">
-                <img src="Images/Laptop/acermonitor.png" alt="Acer Monitor">
-                <p>ACER MONITOR</p>
-            </div>
-            <div class="product">
-                <img src="Images/Laptop/texcurvedultra.png" alt="TeX Curved Ultra">
-                <p>TeX CURVED ULTRA</p>
-            </div>
-        </div>
-    </main>
-          
+<main>
+    <table class="product-grid-table">
+        <tr>
+            <td class="product">
+                <a href="product.html?product=TeX-Laptop">
+                    <img src="Images/Laptop/image 1.png" alt="TeX Laptop">
+                    <p>TeX LAPTOP</p>
+                </a>
+            </td>
+            <td class="product">
+                <a href="product.html?product=LG-Laptop">
+                    <img src="Images/Laptop/lg.png" alt="LG Laptop">
+                    <p>LG LAPTOP</p>
+                </a>
+            </td>
+            <td class="product">
+                <a href="product.html?product=Razer-Gaming-Laptop">
+                    <img src="Images/Laptop/razergaming.png" alt="Razer Gaming Laptop">
+                    <p>RAZER GAMING LAPTOP</p>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td class="product">
+                <a href="product.html?product=Samsung-Curved-Monitor">
+                    <img src="Images/Laptop/samsungcurved.png" alt="Samsung Curved Monitor">
+                    <p>SAMSUNG CURVED MONITOR</p>
+                </a>
+            </td>
+            <td class="product">
+                <a href="product.html?product=Acer-Monitor">
+                    <img src="Images/Laptop/acermonitor.png" alt="Acer Monitor">
+                    <p>ACER MONITOR</p>
+                </a>
+            </td>
+            <td class="product">
+                <a href="product.html?product=TeX-Curved-Ultra">
+                    <img src="Images/Laptop/texcurvedultra.png" alt="TeX Curved Ultra">
+                    <p>TeX CURVED ULTRA</p>
+                </a>
+            </td>
+        </tr>
+    </table>
+</main>
+        
   <!-- Footer -->
   <footer>
     © 2024 TeX

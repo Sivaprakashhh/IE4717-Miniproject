@@ -175,11 +175,13 @@
             </a>
         </div>
         <div class="search-bar">
-            <input type="text" placeholder="Search for products">
-            <button type="submit">
-                <img src="Images/Others/search.png" alt="Search Icon" class="search-icon">
-                </button>
-        </div>
+          <form action="search.php" method="POST">
+          <input type="text" name="query" placeholder="Search for products">
+          <button type="submit">
+              <img src="Images/Others/search.png" alt="Search Icon" class="search-icon">
+              </button>
+          </form> 
+      </div>
         <div class="user-cart">
           <a href="Login.html">
               <div class="login">

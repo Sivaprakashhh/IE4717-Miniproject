@@ -12,7 +12,8 @@ CREATE TABLE IF NOT EXISTS products (
     id INT AUTO_INCREMENT PRIMARY KEY,
     product_type VARCHAR(50) NOT NULL,
     product_name VARCHAR(100) NOT NULL,
-    price DECIMAL(10, 2) NOT NULL
+    price DECIMAL(10, 2) NOT NULL,
+    imagelink VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS orders (
@@ -23,5 +24,6 @@ CREATE TABLE IF NOT EXISTS orders (
     product_colour VARCHAR(20) NOT NULL,
     quantity INT NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
+    checkout_status BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (userid) REFERENCES usersaccounts (id) ON DELETE CASCADE
 );

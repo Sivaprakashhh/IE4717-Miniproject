@@ -27,34 +27,38 @@ main {
     justify-content: center;
 }
 
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    width: 80%;
-    
+.product-grid-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 30px; /* Adds spacing between table cells similar to gap */
 }
 
-.product {
-    
+.product-grid-table td {
     border: 2px solid black;
     text-align: center;
     padding: 15px;
+    
+    
 }
 
-.product img {
+.product-grid-table img {
     max-width: 120px;
     max-height: 120px;
     margin-bottom: 10px;
 }
 
-.product p {
-    font-size: 25px;
+.product-grid-table p {
+    font-size: 24px;
     font-weight: bold;
 }
-nav ul li a{
+
+nav ul li a {
     text-decoration: none;
-    
+}
+
+.product-grid-table a {
+    text-decoration: none;
+    color: black;
 }
 </style>
 <body>
@@ -67,10 +71,12 @@ nav ul li a{
         </a>
     </div>
     <div class="search-bar">
-        <input type="text" placeholder="Search for products">
+        <form action="search.php" method="POST">
+        <input type="text" name="query" placeholder="Search for products">
         <button type="submit">
             <img src="Images/Others/search.png" alt="Search Icon" class="search-icon">
             </button>
+        </form> 
     </div>
     <div class="user-cart">
         <a href="Login.html">
@@ -100,34 +106,50 @@ nav ul li a{
 </nav>
 <!-- Main Content -->
     
-    <main>
-        <div class="product-grid">
-            <div class="product">
-                <img src="Images/Smartphones/iphone16.png" alt="Iphone 16">
-                <p>Iphone 16</p>
-            </div>
-            <div class="product">
-                <img src="Images/Smartphones/iphone16plus.png" alt="Iphone 16 plus">
-                <p>Iphone 16 Plus</p>
-            </div>
-            <div class="product">
-                <img src="Images/Smartphones/iphone15.png" alt="Iphone 15">
-                <p>Iphone 15</p>
-            </div>
-            <div class="product">
-                <img src="Images/Smartphones/samsunggalaxy.png" alt="Samsung Galaxy">
-                <p>SAMSUNG GALAXY</p>
-            </div>
-            <div class="product">
-                <img src="Images/Smartphones/googlepixel.png" alt="Google Pixel">
-                <p>GOOGLE PIXEL 4</p>
-            </div>
-            <div class="product">
-                <img src="Images/Smartphones/opporeno.png" alt="Oppo Reno">
-                <p>Oppo Reno 17</p>
-            </div>
-        </div>
-    </main>
+<main>
+    <table class="product-grid-table">
+        <tr>
+            <td class="product">
+                <a href="product.html?product=IPhone-16">
+                    <img src="Images/Smartphones/iphone16.png" alt="Iphone 16">
+                    <p>Iphone 16</p>
+                </a>
+            </td>
+            <td class="product">
+                <a href="product.html?product=IPhone-16-Plus">
+                    <img src="Images/Smartphones/iphone16plus.png" alt="Iphone 16 Plus">
+                    <p>Iphone 16 Plus</p>
+                </a>
+            </td>
+            <td class="product">
+                <a href="product.html?product=IPhone-15">
+                    <img src="Images/Smartphones/iphone15.png" alt="Iphone 15">
+                    <p>Iphone 15</p>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td class="product">
+                <a href="product.html?product=Samsung-Galaxy">
+                    <img src="Images/Smartphones/samsunggalaxy.png" alt="Samsung Galaxy">
+                    <p>Samsung Galaxy</p>
+                </a>
+            </td>
+            <td class="product">
+                <a href="product.html?product=Google-Pixel-4">
+                    <img src="Images/Smartphones/googlepixel.png" alt="Google Pixel">
+                    <p>Google Pixel 4</p>
+                </a>
+            </td>
+            <td class="product">
+                <a href="product.html?product=Oppo-Reno-17">
+                    <img src="Images/Smartphones/opporeno.png" alt="Oppo Reno">
+                    <p>Oppo Reno 17</p>
+                </a>
+            </td>
+        </tr>
+    </table>
+</main>
           
   <!-- Footer -->
   <footer>
