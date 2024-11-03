@@ -50,30 +50,79 @@ main {
 
 .discount-banner p {
     color: black;
-    font-size: 14px;
-    margin-bottom: 20px;
+    font-size: 24px;
 }
 
 .discount-banner span {
-    font-size: 36px;
+    font-size: 16px;
 }
 
 .discount-banner strong {
     font-size: 48px;
 }
-.logo a{
-    text-decoration: none;
-}
-.button {
-    text-decoration: none;
+
+.discount-banner button {
+    margin-top: 10px;
     padding: 10px 20px;
-    font-size: 26px;
+    font-size: 16px;
     background-color: #0078d7;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
+.logo a{
+    text-decoration: none;
+}
+.container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 50px;
+        }
+        .login-box {
+            background-color:  #efefefed;
+            width: 600px;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .login-box h2 {
+            margin-bottom: 20px;
+        }
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            background-color: #f9f9f9;
+        }
+        .login-box button {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #f9f9f9;
+            color: black;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .login-box button:hover {
+            background-color: #0078d7;
+        }
+        .login-box p {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .login-box p a {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+        }
 </style>
 <body>
     <!-- Header -->
@@ -117,21 +166,15 @@ main {
     </nav>
 
     <!-- Main Content -->
-    <main>
-        <div class="product-grid">
-            <div class="product"><img src="Images/Homepage/TV1.png" alt="TV"></div>
-            <div class="product"><img src="Images/Homepage/Laptop1.png" alt="Laptop"></div>
-            <div class="product"><img src="Images/Homepage/Phone1.png" alt="Smartphone"></div>
+    <div class="container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <input type="text" placeholder="Username">
+            <input type="password" placeholder="Password">
+            <button>Login</button>
+            <p>Don't have an account ? <a href="Register.html">Register</a></p>
         </div>
-        
-        <div class="discount-banner">
-            <h2>ONLINE EXTRA DISCOUNT</h2>
-            <p><span>UP<br>TO</span><br>
-                <strong>50%</strong> off</p>
-            <p>conditions apply.</p>
-            <a href="Store.html" class="button">Shop Now</a>
-        </div>
-    </main>
+    </div>
 
     <!-- Footer -->
     <footer>

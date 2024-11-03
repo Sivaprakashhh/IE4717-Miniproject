@@ -64,7 +64,8 @@
 .product-info h3 {
   font-size: 18px;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+
 }
 
 .product-info h3 span {
@@ -72,12 +73,15 @@
   font-weight: bold;
 }
 
-button {
+.button {
   padding: 10px;
   background-color: #ccc;
   border: none;
   border-radius: 15px;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
 </style>
 <body>
@@ -95,15 +99,19 @@ button {
                 </button>
         </div>
         <div class="user-cart">
-            <div class="login">
-                <img src="Images/Others/user.png" alt="User Icon" class="icon">
-                <div class="text">Login</div>
-            </div>
-            <div class="cart">
-                <img src="Images/Others/cart.png" alt="Cart Icon" class="icon">
-                <div class="text">Cart (0)</div>
-            </div>
-        </div>
+          <a href="Login.html">
+              <div class="login">
+                  <img src="Images/Others/user.png" alt="User Icon" class="icon">
+                  <div class="text">Login</div>
+              </div>
+          </a>
+          <a href="Cart.html">
+              <div class="cart">
+                  <img src="Images/Others/cart.png" alt="Cart Icon" class="icon">
+                  <div class="text">Cart (0)</div>
+              </div>
+          </a>
+      </div>
     </header>
 
     <!-- Navigation Bar -->
@@ -125,21 +133,21 @@ button {
             <div class="product-image tv"></div>
             <div class="product-info">
               <h3>PRISM+ DELL <span>LG</span></h3>
-              <button>Browse Models</button>
+              <a href="TV.html" class="button">Browse Models</a>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image laptop"></div>
             <div class="product-info">
               <h3>Brand New <span>ASUS E410</span></h3>
-              <button>Browse Models</button>
+              <a href="Laptops-PCs.html" class="button">Browse Models</a>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image smartphone"></div>
             <div class="product-info">
               <h3>IPhone Ultra Pro Max 10000 <span>ANDROID</span></h3>
-              <button>Browse Models</button>
+              <a href="Smartphones.html" class="button">Browse Models</a>
             </div>
           </div>
         </div>

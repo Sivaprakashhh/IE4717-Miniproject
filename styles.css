@@ -38,9 +38,11 @@ header {
     font-size: 60px;
     font-weight: bold;
     color: #ECE52C;
-    font-family: Arial, sans-serif;
-   
-    
+    font-family: Arial, sans-serif; 
+}
+.user-cart a {
+    text-decoration: none;
+    color: black;
 }
 
 .search-bar {
