@@ -150,7 +150,7 @@ main {
             <p><span>UP<br>TO</span><br>
                 <strong>50%</strong> off</p>
             <p>conditions apply.</p>
-            <a href="Store.html" class="button">Shop Now</a>
+            <a href="Store.php" class="button">Shop Now</a>
         </div>
     </main>
 
