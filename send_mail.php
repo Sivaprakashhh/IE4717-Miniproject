@@ -17,7 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("sss", $name, $email, $comment);
 
     if ($stmt->execute()) {
-        echo "Feedback submitted successfully!";
+        $stmt->close();
+        $conn->close();
+        // Redirect with success flag
+        header("Location: contact.php?success=1");
+        exit();
     } else {
         echo "Error: " . $stmt->error;
     }

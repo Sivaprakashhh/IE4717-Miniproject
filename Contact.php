@@ -28,43 +28,58 @@ nav ul li a{
 }
 
 .container {
-display: flex;
-justify-content: space-between;
-padding-left: 100px;
-padding-top: 40px;
-padding-right: 40px;
-
-background-color: white;
+    display: flex;
+    justify-content: space-around; /* Center both sections */
+    margin:20px;
+    align-items: flex-start; /* Align the sections to the top */
+    padding: 40px; /* Padding around the main content */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
 }
 .contact-info, .contact-form {
-width: 50%;
+    width: 45%; /* Adjust width for a balanced look */
+    padding: 20px;
 }
-.contact-info h3{
-font-size: 40px;
-color: #333;
-}
-.contact-form h3{
-    font-size: 30px;
-    padding-bottom: 10px;
+.contact-info h3, .contact-form h3 {
+    font-size: 24px; /* Adjusted font size for headings */
+    font-weight: bold;
+    color: #333;
 }
 .contact-info p{
 font-size: 20px;
 color: #333;
-font-weight: bold;
 padding:5px;
 }
-.contact-form label{
-    font-size: 20px;
+.contact-form label {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
 }
 .contact-form input[type="text"], .contact-form textarea {
-width: 100%;
-padding: 5px;
-margin: 5px 0;
-border: 2px solid #ccc;
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.contact-form button {
+    background-color: #ECE52C;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.contact-form button:hover {
+    background-color: #D4C300;
 }
 
 </style>
-<body>
+<body onload="checkSuccess()">
 
 <?php session_start(); ?>
     <!-- Header -->
@@ -131,7 +146,7 @@ border: 2px solid #ccc;
         <p>Call us at: 1800 123 9876</p>
         <p>Operating hours: 10am - 10pm</p>
         <p>Alternatively,</p>
-        <p>Email us at: support@tex.com</p>
+        <p>Email us at: <a href="mailto:support@tex.com">support@tex.com</a></p>
     </div>
     <div class="contact-form">
         <h3>You can also leave us a message by completing the form below:</h3>
@@ -162,6 +177,17 @@ border: 2px solid #ccc;
         }
         return true; // Allow form submission
     }
+
+    function checkSuccess() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('success')) {
+        alert("Feedback submitted successfully!");
+        // Clear form fields
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("comment").value = "";
+    }
+}
 </script>
 
 </body>
