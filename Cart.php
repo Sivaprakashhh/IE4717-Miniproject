@@ -89,6 +89,37 @@ nav ul li a {
     justify-content: space-between;
     margin-bottom: 10px;
 }
+/* Style for the Checkout button */
+.Checkout {
+    background-color: #c47777;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.Checkout:hover {
+    background-color: #a05d5d;
+}
+
+.remove-button {
+    background-color: #d9534f;
+    color: white;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.remove-button:hover {
+    background-color:  #c47777;
+}
 </style>
 <body>
 <?php session_start(); ?>
