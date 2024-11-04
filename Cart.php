@@ -1,133 +1,61 @@
+<?php
+session_start();
+
+// Handle remove product request
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_product_id'])) {
+    $remove_product_id = $_POST['remove_product_id'];
+    // Remove the product from the cart session
+    unset($_SESSION['cart'][$remove_product_id]);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TeX Electronics</title>
+    <title>TeX Electronics - Cart</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <style>
-    nav ul li a{
+/* Additional styling for the cart page */
+nav ul li a {
     text-decoration: none;
     color: black;
-}
-/* Main Content */
-main {
-    text-align: center;
-    margin: 20px;
-}
-
-.product-grid {
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-    margin: 10px;
-    padding: 30px;
-}
-
-.product img {
-    width: 200px;
-    height: 200px;
-    background-color: #f2f2f2;
-    border-radius: 5px;
-}
-
-/* Discount Banner */
-.discount-banner {
-    background-color: #f2f2f2;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.discount-banner h2 {
-    color: black;
-    font-size: 50px;
-    font-weight: 700;
-}
-
-.discount-banner p {
-    color: black;
-    font-size: 24px;
-}
-
-.discount-banner span {
-    font-size: 16px;
-}
-
-.discount-banner strong {
-    font-size: 48px;
-}
-
-.discount-banner button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #0078d7;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.logo a{
-    text-decoration: none;
 }
 .cart-container {
-display: flex;
-padding: 40px;
-gap: 20px;
+    display: flex;
+    padding: 40px;
+    gap: 20px;
 }
 .cart-details {
-flex: 3;
-background-color: #fff;
-padding: 40px;
-border-radius: 5px;
+    flex: 3;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 5px;
 }
 .cart-summary {
-flex: 1;
-background-color: #fff;
-padding: 20px;
-border: 1px solid black;
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid black;
 }
-.cart-summary input[type="text"] {
-width: 100%;
-padding: 8px;
-margin-top: 5px;
-margin-bottom: 10px;
-border: 1px solid #ddd;
-border-radius: 5px;
+.product-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
 }
-.cart-summary button {
-width: 70%;
-margin:auto;
-display: block;
-padding: 10px;
-color: white;
-border: none;
-cursor: pointer;
-border-radius: 5px;
+.product-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
 }
-.apply{
-    background-color: #a59f9f;
+.product-info {
+    flex-grow: 1;
 }
-.Checkout{
-    background-color: #dc8f8f;
-}
-hr{
-    margin:15px;
-    border: 1px solid #000000; /* Change the color and thickness */
-    
-}
-.cart-summary p {
-margin: 5px 0;
-}
-.Total-text, .Shipping-text {
-    font-size: 16px;
-}
-.Total-price, .Shipping-free {
-    font-size: 16px;
+.product-price, .product-total-price {
     font-weight: bold;
 }
 .summary-row {
@@ -135,56 +63,17 @@ margin: 5px 0;
     justify-content: space-between;
     margin-bottom: 10px;
 }
-.product-item {
-display: flex;
-align-items: center;
-gap: 20px;
-margin-bottom: 20px;
-}
-.product-item .placeholder-img {
-width: 200px;
-height: 200px;
-margin-top: 10px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 14px;
-color: #555;
-}
-.product-info {
-flex-grow: 1;
-}
-.product-quantity {
-display: flex;
-align-items: center;
-}
-.product-quantity button {
-padding: 5px;
-background-color: #ddd;
-border: none;
-cursor: pointer;
-margin: 0 5px;
-}
-.product-price {
-font-weight: bold;
-}
-.Checkout:hover {
-    background-color: #b56969;
-}
-.apply:hover {
-    background-color: #9a9494;
-}
 </style>
 <body>
 <?php session_start(); ?>
-    <!-- Header -->
-    <header>
-        <div class="logo">
-            <a href="Homepage.php">
-                <span class="logo-text">TeX</span>
-            </a>
-        </div>
-        <div class="search-container">
+<!-- Header -->
+<header>
+    <div class="logo">
+        <a href="Homepage.php">
+            <span class="logo-text">TeX</span>
+        </a>
+    </div>
+    <div class="search-container">
         <div class="search-bar">
             <form action="search.php" method="POST">
                 <input type="text" name="query" placeholder="Search for products">
@@ -197,84 +86,93 @@ font-weight: bold;
                 Welcome, <?php echo htmlspecialchars($_SESSION['first_name']); ?>
             </div>
         </div>
+    </div>
+    <div class="user-cart">
+        <a href="Account.php"><div class="login"><img src="Images/Others/user.png" alt="User Icon" class="icon"><div class="text">User Profile</div></div></a>
+    <?php else: ?>
+        <a href="Login.php" style="text-decoration: none;">
+            <div class="login" style="margin-left:500px; margin-right:10px;">
+                <img src="Images/Others/user.png" alt="User Icon" class="icon">
+                <div class="text" style="font-size: 16px; color: black; margin-right:10px;">Login</div>
+            </div>
+        </a>
+    <?php endif; ?>
+    <a href="Cart.php" style="text-decoration: none;">
+        <div class="cart">
+            <img src="Images/Others/cart.png" alt="Cart Icon" class="icon">
+            <div class="text" style="font-size: 16px; color: black;">Cart(<?php echo count($_SESSION['cart'] ?? []); ?>)</div>
         </div>
-        <div class="user-cart">
-        <!-- Show User Profile or Login depending on the session status -->
-            <a href="Account.php">
-                <div class="login">
-                    <img src="Images/Others/user.png" alt="User Icon" class="icon">
-                    <div class="text">User Profile</div>
-                </div>
-            </a>
-        <?php else: ?>
-            <a href="Login.php" style="text-decoration: none;">
-                    <div class="login" style="margin-left:500px; margin-right:10px;">
-                        <img src="Images/Others/user.png" alt="User Icon" class="icon">
-                        <div class="text" style="font-size: 16px; color: black; margin-right:10px;">Login</div>
-                    </div>
-                </a>
-            <?php endif; ?>
-            
-            <a href="Cart.php" style="text-decoration: none;">
-                <div class="cart">
-                    <img src="Images/Others/cart.png" alt="Cart Icon" class="icon">
-                    <div class="text" style="font-size: 16px; color: black;">Cart(0)</div>
-                </div>
-            </a>
-        </div>
-    </header>
+    </a>
+</header>
 
-    <!-- Navigation Bar -->
-    <nav>
-        <ul>
+<!-- Navigation Bar -->
+<nav>
+    <ul>
         <li><a href="Store.php">Store</a></li>
-            <li><a href="TV.php">TV</a></li>
-            <li><a href="Laptops-PCs.php">Laptops & PCs</a></li>
-            <li><a href="Smartphones.php">Smartphones</a></li>
-            <li><a href="Contact.php" >Contact</a></li>
-        </ul>
-    </nav>
+        <li><a href="TV.php">TV</a></li>
+        <li><a href="Laptops-PCs.php">Laptops & PCs</a></li>
+        <li><a href="Smartphones.php">Smartphones</a></li>
+        <li><a href="Contact.php">Contact</a></li>
+    </ul>
+</nav>
 
-    <!-- Main Content -->
-    <div class="cart-container">
-        <div class="cart-details">
-            <h2>My Shopping Cart (1 item)</h2>
-            <p>Checkout to secure your order!</p>
-            <div class="product-item">
-                <img src="Images/TV/prism+.png" alt="PRISM+ Ultra Google TV" class="placeholder-img">
-                <div class="product-info">
-                    <p><strong>PRISM+ Ultra Google TV</strong></p>
-                    <p>Remarks: Delivery & Assembly (Free)</p>
+<!-- Main Content -->
+<main class="cart-container">
+    <div class="cart-details">
+        <h2>Your Cart</h2>
+        <?php if (!empty($_SESSION['cart'])): ?>
+            <?php
+            $total = 0; // Initialize total price
+            foreach ($_SESSION['cart'] as $product_id => $product):
+                $productTotal = $product['price'] * $product['quantity'];
+                $total += $productTotal; // Accumulate the total
+            ?>
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                    </div>
+                    <div class="product-info">
+                        <h3><?php echo htmlspecialchars($product['name']); ?></h3>
+                        <p>Color: <?php echo htmlspecialchars($product['color']); ?></p>
+                        <p>Quantity: <?php echo $product['quantity']; ?></p>
+                        <p>Price: $<?php echo number_format($product['price'], 2); ?></p>
+                        <p class="product-total-price">Total: $<?php echo number_format($productTotal, 2); ?></p>
+
+                         <!-- Remove button form -->
+                         <form method="post" action="cart.php" style="display:inline;">
+                            <input type="hidden" name="remove_product_id" value="<?php echo $product_id; ?>">
+                            <button type="submit" class="remove-button">Remove</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="product-quantity">
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
-                </div>
-                <div class="product-price">$1000</div>
-            </div>
-        </div>
-    
-        <div class="cart-summary">
-            <h3>Cart Summary</h3>
-            <input type="text" placeholder="Discount Code">
-            <button class="apply">APPLY</button>
-            <hr>
-            <div class="summary-row">
-                <p class="Total-text">Subtotal</p>
-                <p class="Total-price">$1000</p>
-            </div>
-            <div class="summary-row">
-                <p class="Shipping-text">Shipping</p>
-                <p class="Shipping-free">FREE</p>
-            </div>
-            <button class="Checkout">CHECKOUT</button>
-        </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>Your cart is empty.</p>
+        <?php endif; ?>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 TeX</p>
-    </footer>
+    <div class="cart-summary">
+        <h3>Order Summary</h3>
+        <hr>
+        <div class="summary-row">
+            <p>Subtotal:</p>
+            <p>$<?php echo number_format($total, 2); ?></p>
+        </div>
+        <div class="summary-row">
+            <p>Shipping:</p>
+            <p class="Shipping-free">Free</p>
+        </div>
+        <div class="summary-row">
+            <p class="Total-text">Total:</p>
+            <p class="Total-price">$<?php echo number_format($total, 2); ?></p>
+        </div>
+        <button class="Checkout">Proceed to Checkout</button>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 TeX</p>
+</footer>
 </body>
 </html>

@@ -105,11 +105,11 @@ border: 2px solid #ccc;
             <?php endif; ?>
             
             <a href="Cart.php" style="text-decoration: none;">
-                <div class="cart">
-                    <img src="Images/Others/cart.png" alt="Cart Icon" class="icon">
-                    <div class="text" style="font-size: 16px; color: black;">Cart(0)</div>
-                </div>
-            </a>
+        <div class="cart">
+            <img src="Images/Others/cart.png" alt="Cart Icon" class="icon">
+            <div class="text" style="font-size: 16px; color: black;">Cart(<?php echo count($_SESSION['cart'] ?? []); ?>)</div>
+        </div>
+    </a>
         </div>
     </header>
 

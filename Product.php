@@ -101,6 +101,12 @@ border: none;
 border-radius: 5px;
 cursor: pointer;
 }
+.product-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
 
 </style>
 </head>
@@ -145,11 +151,11 @@ cursor: pointer;
             <?php endif; ?>
             
             <a href="Cart.php" style="text-decoration: none;">
-                <div class="cart">
-                    <img src="Images/Others/cart.png" alt="Cart Icon" class="icon">
-                    <div class="text" style="font-size: 16px; color: black;">Cart(0)</div>
-                </div>
-            </a>
+        <div class="cart">
+            <img src="Images/Others/cart.png" alt="Cart Icon" class="icon">
+            <div class="text" style="font-size: 16px; color: black;">Cart(<?php echo count($_SESSION['cart'] ?? []); ?>)</div>
+        </div>
+    </a>
         </div>
     </header>
 
@@ -175,6 +181,9 @@ cursor: pointer;
             <div class="product-description">
                 <h2>TeX TV</h2>
                 <p>Model: XXX</p>
+
+                <!-- Price Display -->
+        <p class="product-price">$<span id="product-price">499.99</span></p>
                 
                 <!-- Rating -->
                 <div class="rating">
@@ -199,7 +208,7 @@ cursor: pointer;
             </div>
 
             <!-- Add to Cart Button -->
-            <button class="add-to-cart">ADD TO CART</button>
+            <button class="add-to-cart" onclick="addToCart()">ADD TO CART</button>
         </div>
     </div>
 
@@ -209,50 +218,56 @@ cursor: pointer;
 
     <script>
 
-    // Define product data (this could also come from a database or API in a real-world app)
+    // Define product data 
     const products = {
         "TeX-TV-XXX": {
             name: "TeX TV XXX",
             model: "XXX",
             image: "Images/TV/image 2.png",
             rating: 5,
-            colors: ["black", "blue"]
+            colors: ["black", "blue"],
+            price: 800
             
         },
         "Prism-Google-TV": {
             name: "Prism Google TV",
             model: "Google TV",
-            image: "Images/TV/prism+.png",
+            image: "Images/TV/prism.png",
             rating: 4,
-            colors: ["black", "grey"]
+            colors: ["black", "grey"],
+            price: 700
         },
         "Windows-ULTRA-TV": {
             name: "Windows ULTRA TV",
             model: "Ultra",
             image: "Images/TV/windowsultra.png",
             rating: 3,
-            colors: ["black", "white"]
+            colors: ["black", "white"],
+            price: 650
         },
         "Samsung-OLED-TV": {
             name: "Samsung OLED TV",
             model: "OLED",
             image: "Images/TV/samsungoled.png",
             rating: 5,
-            colors: ["black", "grey"]
+            colors: ["black", "grey"],
+            price: 1300
         },
         "LG-4K-TV": {
             name: "LG 4K TV",
             model: "4K",
             image: "Images/TV/lg4k.png",
             rating: 4,
-            colors: ["black", "white"]
+            colors: ["black", "white"],
+            price: 900
         },
         "Tex-Crystal-Plus": {
             name: "TeX Crystal Plus",
             model: "Crystal Plus",
             image: "Images/TV/image 2.png",
             rating: 5,
-            colors: ["black", "grey"]
+            colors: ["black", "grey"],
+            price: 750
         },
     // New smartphone products
         "IPhone-16": {
@@ -260,42 +275,48 @@ cursor: pointer;
             model: "16",
             image: "Images/Smartphones/iphone16.png",
             rating: 5,
-            colors: ["black", "pink"]
+            colors: ["black", "pink"],
+            price: 1100
         },
         "IPhone-16-Plus": {
             name: "IPhone 16 Plus",
             model: "16 Plus",
             image: "Images/Smartphones/iphone16plus.png",
             rating: 5,
-            colors: ["black", "blue"]
+            colors: ["black", "blue"],
+            price: 1200
         },
         "IPhone-15": {
             name: "IPhone 15",
             model: "15",
             image: "Images/Smartphones/iphone15.png",
             rating: 4,
-            colors: ["black", "purple"]
+            colors: ["black", "purple"],
+            price: 1000
         },
         "Samsung-Galaxy": {
             name: "Samsung Galaxy",
             model: "Galaxy",
             image: "Images/Smartphones/samsunggalaxy.png",
             rating: 3,
-            colors: ["black", "grey"]
+            colors: ["black", "grey"],
+            price: 800
         },
         "Google-Pixel-4": {
             name: "Google Pixel 4",
             model: "Pixel 4",
             image: "Images/Smartphones/googlepixel.png",
             rating: 3,
-            colors: ["black", "white"]
+            colors: ["black", "white"],
+            price: 900
         },
         "Oppo-Reno-17": {
             name: "Oppo Reno 17",
             model: "Reno 17",
             image: "Images/Smartphones/opporeno.png",
             rating: 4,
-            colors: ["black", "grey"]
+            colors: ["black", "grey"],
+            price: 650
         },
   // Laptop and Monitor products
   "TeX-Laptop": {
@@ -303,42 +324,48 @@ cursor: pointer;
             model: "Laptop",
             image: "Images/Laptop/image 1.png",
             rating: 5,
-            colors: ["black", "grey"]
+            colors: ["black", "grey"],
+            price: 1000
         },
         "LG-Laptop": {
             name: "LG Laptop",
             model: "Laptop",
             image: "Images/Laptop/lg.png",
             rating: 4,
-            colors: ["black", "grey"]
+            colors: ["black", "grey"],
+            price: 850
         },
         "Razer-Gaming-Laptop": {
             name: "Razer Gaming Laptop",
             model: "Gaming",
             image: "Images/Laptop/razergaming.png",
             rating: 4,
-            colors: ["black", "grey"]
+            colors: ["black", "grey"],
+            price: 1500
         },
         "Samsung-Curved-Monitor": {
             name: "Samsung Curved Monitor",
             model: "Curved Monitor",
             image: "Images/Laptop/samsungcurved.png",
             rating: 4,
-            colors: ["black", "grey"]
+            colors: ["black", "grey"],
+            price: 400
         },
         "Acer-Monitor": {
             name: "Acer Monitor",
             model: "Monitor",
             image: "Images/Laptop/acermonitor.png",
             rating: 3,
-            colors: ["black", "grey"]
+            colors: ["black", "grey"],
+            price: 300
         },
         "TeX-Curved-Ultra": {
             name: "TeX Curved Ultra",
             model: "Curved Ultra",
             image: "Images/Laptop/texcurvedultra.png",
             rating: 5,
-            colors: ["black", "grey"]
+            colors: ["black", "grey"],
+            price: 550
         }
     };
 
@@ -359,6 +386,9 @@ cursor: pointer;
             // Update the product name and model
             document.querySelector('.product-description h2').textContent = product.name;
             document.querySelector('.product-description p').textContent = `Model: ${product.model}`;
+
+            // Update the price
+        document.getElementById('product-price').textContent = product.price.toFixed(2);
 
             // Update the rating
             const ratingContainer = document.querySelector('.rating');
@@ -408,6 +438,31 @@ cursor: pointer;
                 document.getElementById('quantity').textContent = quantity;
             }
         }
+
+        function addToCart() {
+    const selectedColor = document.querySelector('.color-option.selected');
+    if (!selectedColor) {
+        alert("Please select a color before adding to cart.");
+        return;
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('product');
+    const quantity = document.getElementById('quantity').textContent;
+    const color = selectedColor.style.backgroundColor;
+    const productName = document.querySelector('.product-description h2').textContent;
+    const productPrice = document.getElementById('product-price').textContent;
+    const productImage = document.querySelector('.product-image img').src;
+
+    fetch('add_to_cart.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `product_id=${productId}&quantity=${quantity}&color=${color}&product_name=${productName}&product_price=${productPrice}&product_image=${productImage}`
+    })
+    .then(response => response.text())
+    .then(data => alert(data)) // Display server response
+    .catch(error => console.error('Error:', error));
+}
     </script>
 
 </body>
