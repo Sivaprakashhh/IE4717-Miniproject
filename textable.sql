@@ -18,14 +18,12 @@ CREATE TABLE IF NOT EXISTS products (
 
 CREATE TABLE IF NOT EXISTS orders (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    userid INT NOT NULL,
-    product_type VARCHAR(50) NOT NULL,
+    order_id INT NOT NULL,
+    usr_name VARCHAR(50) NOT NULL,
     product_name VARCHAR(100) NOT NULL,
     product_colour VARCHAR(20) NOT NULL,
     quantity INT NOT NULL,
-    price DECIMAL(10, 2) NOT NULL,
-    checkout_status BOOLEAN NOT NULL DEFAULT FALSE,
-    FOREIGN KEY (userid) REFERENCES usersaccounts (id) ON DELETE CASCADE
+    price DECIMAL(10, 2) NOT NULL
 );
 
 -- Create the feedback table

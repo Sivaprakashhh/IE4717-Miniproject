@@ -132,7 +132,7 @@ nav ul li a {
             </td>
             <td class="product">
                 <a href="product.php?product=Prism-Google-TV">
-                    <img src="Images/TV/prism+.png" alt="Prism+ Google TV">
+                    <img src="Images/TV/prism.png" alt="Prism+ Google TV">
                     <p>Prism+ Google TV</p>
                 </a>
             </td>

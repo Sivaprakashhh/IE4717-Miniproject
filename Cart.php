@@ -5,8 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['remove_product_id'])) {
         $remove_product_id = $_POST['remove_product_id'];
         unset($_SESSION['cart'][$remove_product_id]); // Remove product from cart
-    } elseif (isset($_POST['checkout']) && !empty($_SESSION['cart'])) {
-        // Handle checkout process only if cart is not empty
+    } elseif (isset($_POST['checkout']) && !empty($_SESSION['cart']) && isset($_SESSION['user_id'])) {
+        // Handle checkout process only if cart is not empty and user is logged in
         $_SESSION['order_success'] = true;
         unset($_SESSION['cart']); // Clear the cart after checkout
         header("Location: cart.php"); // Redirect to the same page to show success message
@@ -30,10 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }, 3000); // 3-second delay
         }
 
-        // Check if cart is empty before proceeding to checkout
+        // Check if cart is empty and user is logged in before proceeding to checkout
         function checkCartNotEmpty() {
             <?php if (empty($_SESSION['cart'])): ?>
                 alert("Your cart is empty!");
+                return false; // Prevent form submission
+            <?php elseif (!isset($_SESSION['user_id'])): ?>
+                alert("Please log in to proceed to checkout!");
                 return false; // Prevent form submission
             <?php else: ?>
                 return true; // Allow form submission
@@ -197,7 +200,7 @@ nav ul li a {
             <p class="Total-price">$<?php echo number_format($total, 2); ?></p>
         </div>
       <!-- Checkout form -->
-      <form method="post" onsubmit="return checkCartNotEmpty();">
+      <form method="post" action="checkout.php" onsubmit="return checkCartNotEmpty();">
             <input type="hidden" name="checkout" value="1">
             <button type="submit" class="Checkout">Checkout</button>
         </form>

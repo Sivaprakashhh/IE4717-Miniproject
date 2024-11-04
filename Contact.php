@@ -135,7 +135,7 @@ border: 2px solid #ccc;
     </div>
     <div class="contact-form">
         <h3>You can also leave us a message by completing the form below:</h3>
-        <form action="send_mail.php" method="POST">
+        <form action="send_mail.php" method="POST" onsubmit="return validateForm()">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name"> <!-- Added name="name" -->
             <label for="email">E-Mail:</label>
@@ -150,6 +150,19 @@ border: 2px solid #ccc;
   <footer>
     © 2024 TeX
 </footer>
+<script>
+    function validateForm() {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const comment = document.getElementById("comment").value.trim();
+        
+        if (name === "" || email === "" || comment === "") {
+            alert("Please fill in all fields before submitting.");
+            return false; // Prevent form submission
+        }
+        return true; // Allow form submission
+    }
+</script>
 
 </body>
 </html>
