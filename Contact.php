@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,12 +135,15 @@ border: 2px solid #ccc;
     </div>
     <div class="contact-form">
         <h3>You can also leave us a message by completing the form below:</h3>
-        <label for="name">Name:</label>
-        <input type="text" id="name">
-        <label for="email">E-Mail:</label>
-        <input type="text" id="email">
-        <label for="comment">Comment:</label>
-        <textarea id="comment" rows="4"></textarea>
+        <form action="send_mail.php" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"> <!-- Added name="name" -->
+            <label for="email">E-Mail:</label>
+            <input type="text" id="email" name="email"> <!-- Added name="email" -->
+            <label for="comment">Comment:</label>
+            <textarea id="comment" name="comment" rows="4"></textarea> <!-- Added name="comment" -->
+            <button type="submit">Submit</button>
+        </form>
     </div>
 </div>     
   <!-- Footer -->

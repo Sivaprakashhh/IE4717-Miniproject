@@ -27,3 +27,12 @@ CREATE TABLE IF NOT EXISTS orders (
     checkout_status BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (userid) REFERENCES usersaccounts (id) ON DELETE CASCADE
 );
+
+-- Create the feedback table
+CREATE TABLE IF NOT EXISTS feedback (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    comment TEXT NOT NULL,
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

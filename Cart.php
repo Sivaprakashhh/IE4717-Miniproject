@@ -1,13 +1,18 @@
 <?php
 session_start();
 
-// Handle remove product request
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_product_id'])) {
-    $remove_product_id = $_POST['remove_product_id'];
-    // Remove the product from the cart session
-    unset($_SESSION['cart'][$remove_product_id]);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['remove_product_id'])) {
+        $remove_product_id = $_POST['remove_product_id'];
+        unset($_SESSION['cart'][$remove_product_id]); // Remove product from cart
+    } elseif (isset($_POST['checkout']) && !empty($_SESSION['cart'])) {
+        // Handle checkout process only if cart is not empty
+        $_SESSION['order_success'] = true;
+        unset($_SESSION['cart']); // Clear the cart after checkout
+        header("Location: cart.php"); // Redirect to the same page to show success message
+        exit;
+    }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +22,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_product_id']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TeX Electronics - Cart</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        // Redirect to homepage after showing success message
+        function redirectToHome() {
+            setTimeout(() => {
+                window.location.href = 'Homepage.php';
+            }, 3000); // 3-second delay
+        }
+
+        // Check if cart is empty before proceeding to checkout
+        function checkCartNotEmpty() {
+            <?php if (empty($_SESSION['cart'])): ?>
+                alert("Your cart is empty!");
+                return false; // Prevent form submission
+            <?php else: ?>
+                return true; // Allow form submission
+            <?php endif; ?>
+        }
+    </script>
 </head>
 <style>
 /* Additional styling for the cart page */
@@ -115,7 +138,14 @@ nav ul li a {
         <li><a href="Contact.php">Contact</a></li>
     </ul>
 </nav>
-
+<!-- Success message after checkout -->
+<?php if (isset($_SESSION['order_success'])): ?>
+    <div class="order-success">
+        <p>Your order has been successful! Redirecting to homepage...</p>
+    </div>
+    <script>redirectToHome();</script>
+    <?php unset($_SESSION['order_success']); ?>
+<?php endif; ?>
 <!-- Main Content -->
 <main class="cart-container">
     <div class="cart-details">
@@ -166,7 +196,11 @@ nav ul li a {
             <p class="Total-text">Total:</p>
             <p class="Total-price">$<?php echo number_format($total, 2); ?></p>
         </div>
-        <button class="Checkout">Proceed to Checkout</button>
+      <!-- Checkout form -->
+      <form method="post" onsubmit="return checkCartNotEmpty();">
+            <input type="hidden" name="checkout" value="1">
+            <button type="submit" class="Checkout">Checkout</button>
+        </form>
     </div>
 </main>
 
