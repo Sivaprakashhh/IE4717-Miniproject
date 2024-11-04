@@ -42,7 +42,7 @@
 
           // Determine the link based on the product type
           // Generate the link to the single product page
-          $productLink = 'product.html?product=' . urlencode(str_replace(' ', '-', $productName));
+          $productLink = 'product.php?product=' . urlencode(str_replace(' ', '-', $productName));
 
           // Display the product details
           echo "<div class='product-item'>";

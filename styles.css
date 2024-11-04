@@ -32,28 +32,27 @@ header {
     height: 50px;
     background-color: #3e5c94; /* Dark blue background */
     border-radius: 50%; /* Makes the oval shape */
-    
+}
+.logo a{
+    text-decoration: none;
 }
 .logo-text {
     font-size: 60px;
-    font-weight: bold;
+    font-weight:bold;
     color: #ECE52C;
     font-family: Arial, sans-serif; 
+    
 }
 .user-cart a {
     text-decoration: none;
     color: black;
 }
-
-.search-bar {
-    display: inline-flex; /* Set to inline-flex to keep them on the same line */
+.search-container {
+    display: flex;
     align-items: center;
+    flex-grow: 1;
+    
 }
-.search-bar form {
-    display: flex; /* Align input and button inline */
-    align-items: center;
-}
-
 .search-bar input[type="text"] {
     flex: 1; /* Allows the input to take up available space */
     padding: 8px;
@@ -62,6 +61,7 @@ header {
     border-radius: 4px 0 0 4px;
     outline: none;
     width: 500px;
+    margin-bottom: 5px;
 }
 
 .search-bar button {
@@ -72,6 +72,7 @@ header {
     background-color: #ECE52C; /* Match background to input if necessary */
     cursor: pointer;
     border-radius: 0 4px 4px 0;
+    margin-bottom: 5px;
 }
 .search-icon {
     width: 20px; /* Adjust the size as needed */
@@ -79,38 +80,18 @@ header {
     margin:5px;
    
 }
-
-    /* Header */
-.icon {
-    width: 20px; /* Adjust size as needed */
-    height: 20px;
-    vertical-align: middle;
-    margin-right: 5px; /* Space between icon and text */
-}
-header {
+.search-bar {  
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #e6e6e6;
-}
-.logo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 50px;
-    background-color: #3e5c94; /* Dark blue background */
-    border-radius: 50%; /* Makes the oval shape */
-}
-.logo-text {
-    font-size: 60px;
-    font-weight: bold;
-    color: #ECE52C;
-    font-family: Arial, sans-serif;
+    width: 100%;
+    max-width: 600px;
+    margin:auto;
     
 }
-
+.search-bar form {
+    display: flex; /* Align input and button inline */
+    align-items: center;
+}
 .user-cart {
     display: flex;
     gap: 20px; /* Space between login and cart sections */
@@ -121,7 +102,12 @@ header {
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-
+}
+.welcome-message {
+    margin-left:15px;
+    font-size: 16px;
+    color: black;
+    font-style:Italic;
 }
 
 /* Navigation Bar */
@@ -142,6 +128,7 @@ nav ul li {
     cursor: pointer;
     font-weight: bold;
 }
+
 
 /* Footer */
 footer {
