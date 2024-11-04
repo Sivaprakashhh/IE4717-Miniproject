@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute the query and check for errors
     if (mysqli_query($conn, $sql)) {
-        $successMessage = "Registration successful. <a href='login.html'>Login here</a>";
+        $successMessage = "Registration successful. <a href='Login.php'>Login here</a>";
     } else {
         if (mysqli_errno($conn) == 1062) {  // Duplicate email error
             $successMessage = "This email is already registered. <a href='register.html'>Try again</a>";

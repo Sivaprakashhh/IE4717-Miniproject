@@ -179,7 +179,7 @@ font-weight: bold;
     <!-- Header -->
     <header>
         <div class="logo">
-            <a href="homepage.html">
+            <a href="Homepage.php">
                 <span class="logo-text">TeX</span>
             </a>
         </div>
@@ -192,7 +192,7 @@ font-weight: bold;
             </form> 
         </div>
         <div class="user-cart">
-            <a href="Login.html">
+            <a href="Login.php">
                 <div class="login">
                     <img src="Images/Others/user.png" alt="User Icon" class="icon">
                     <div class="text">Login</div>
@@ -210,11 +210,11 @@ font-weight: bold;
     <!-- Navigation Bar -->
     <nav>
         <ul>
-            <li><a href="Store.html">Store</a></li>
-            <li><a href="TV.html">TV</a></li>
-            <li><a href="Laptops-PCs.html">Laptops & PCs</a></li>
-            <li><a href="Smartphones.html">Smartphones</a></li>
-            <li><a href="Contact.html" >Contact</a></li>
+        <li><a href="Store.php">Store</a></li>
+            <li><a href="TV.php">TV</a></li>
+            <li><a href="Laptops-PCs.php">Laptops & PCs</a></li>
+            <li><a href="Smartphones.php">Smartphones</a></li>
+            <li><a href="Contact.php" >Contact</a></li>
         </ul>
     </nav>
 

@@ -128,7 +128,7 @@ main {
     <!-- Header -->
     <header>
         <div class="logo">
-            <a href="homepage.html">
+            <a href="Homepage.php">
                 <span class="logo-text">TeX</span>
             </a>
         </div>
@@ -141,13 +141,13 @@ main {
             </form> 
         </div>
         <div class="user-cart">
-            <a href="Login.html">
+            <a href="Login.php">
                 <div class="login">
                     <img src="Images/Others/user.png" alt="User Icon" class="icon">
                     <div class="text">Login</div>
                 </div>
             </a>
-            <a href="Cart.html">
+            <a href="Cart.php">
                 <div class="cart">
                     <img src="Images/Others/cart.png" alt="Cart Icon" class="icon">
                     <div class="text">Cart (0)</div>
@@ -159,11 +159,11 @@ main {
     <!-- Navigation Bar -->
     <nav>
         <ul>
-            <li><a href="Store.html">Store</a></li>
-            <li><a href="TV.html">TV</a></li>
-            <li><a href="Laptops-PCs.html">Laptops & PCs</a></li>
-            <li><a href="Smartphones.html">Smartphones</a></li>
-            <li><a href="Contact.html" >Contact</a></li>
+            <li><a href="Store.php">Store</a></li>
+            <li><a href="TV.php">TV</a></li>
+            <li><a href="Laptops-PCs.php">Laptops & PCs</a></li>
+            <li><a href="Smartphones.php">Smartphones</a></li>
+            <li><a href="Contact.php" >Contact</a></li>
         </ul>
     </nav>
 
@@ -171,9 +171,11 @@ main {
     <div class="container">
         <div class="login-box">
             <h2>Login</h2>
-            <input type="text" placeholder="Username">
-            <input type="password" placeholder="Password">
-            <button>Login</button>
+        <form action="login_validation.php" method="post" id="loginForm">
+            <input type="text" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
+            <button type ="submit">Login</button>
+        </form>
             <p>Don't have an account ? <a href="Register.html">Register</a></p>
         </div>
     </div>

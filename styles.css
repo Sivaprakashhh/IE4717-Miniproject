@@ -116,7 +116,7 @@ header {
     gap: 20px; /* Space between login and cart sections */
 }
 
-.login, .cart {
+.user-cart .login, .user-cart .cart {
     display: flex;
     flex-direction: column;
     align-items: center;
