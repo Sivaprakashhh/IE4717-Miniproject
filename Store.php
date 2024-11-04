@@ -167,6 +167,7 @@
 }
 </style>
 <body>
+<?php session_start(); ?>
     <!-- Header -->
     <header>
         <div class="logo">
@@ -175,27 +176,38 @@
             </a>
         </div>
         <div class="search-bar">
-          <form action="search.php" method="POST">
-          <input type="text" name="query" placeholder="Search for products">
-          <button type="submit">
-              <img src="Images/Others/search.png" alt="Search Icon" class="search-icon">
-              </button>
-          </form> 
-      </div>
+            <form action="search.php" method="POST">
+                <input type="text" name="query" placeholder="Search for products">
+                <button type="submit">
+                    <img src="Images/Others/search.png" alt="Search Icon" class="search-icon">
+                </button>
+            </form> 
+        </div>
         <div class="user-cart">
-          <a href="Login.php">
-              <div class="login">
-                  <img src="Images/Others/user.png" alt="User Icon" class="icon">
-                  <div class="text">Login</div>
-              </div>
-          </a>
-          <a href="Cart.php">
-              <div class="cart">
-                  <img src="Images/Others/cart.png" alt="Cart Icon" class="icon">
-                  <div class="text">Cart (0)</div>
-              </div>
-          </a>
-      </div>
+            <!-- Show Logout if the user is logged in; otherwise, show Login -->
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <a href="logout.php">
+                    <div class="login">
+                        <img src="Images/Others/user.png" alt="User Icon" class="icon">
+                        <div class="text">Logout</div>
+                    </div>
+                </a>
+            <?php else: ?>
+                <a href="Login.php">
+                    <div class="login">
+                        <img src="Images/Others/user.png" alt="User Icon" class="icon">
+                        <div class="text">Login</div>
+                    </div>
+                </a>
+            <?php endif; ?>
+            
+            <a href="Cart.php">
+                <div class="cart">
+                    <img src="Images/Others/cart.png" alt="Cart Icon" class="icon">
+                    <div class="text">Cart (0)</div>
+                </div>
+            </a>
+        </div>
     </header>
 
     <!-- Navigation Bar -->
