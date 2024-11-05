@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TeX Electronics</title>
+    <title>TeX Electronics - Laptop </title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <style>
@@ -101,7 +101,7 @@ nav ul li a {
             </a>
         <?php else: ?>
             <a href="Login.php" style="text-decoration: none;">
-                    <div class="login" style="margin-left:500px; margin-right:10px;">
+                    <div class="login" style="margin-left:300px; margin-right:10px;">
                         <img src="Images/Others/user.png" alt="User Icon" class="icon">
                         <div class="text" style="font-size: 16px; color: black; margin-right:10px;">Login</div>
                     </div>

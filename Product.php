@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product</title>
+<title>Tex Electronics - Product</title>
 <link rel="stylesheet" href="styles.css">
 <style>
 nav ul li a{
@@ -143,7 +143,7 @@ cursor: pointer;
             </a>
         <?php else: ?>
             <a href="Login.php" style="text-decoration: none;">
-                    <div class="login" style="margin-left:500px; margin-right:10px;">
+                    <div class="login" style="margin-left:300px; margin-right:10px;">
                         <img src="Images/Others/user.png" alt="User Icon" class="icon">
                         <div class="text" style="font-size: 16px; color: black; margin-right:10px;">Login</div>
                     </div>
@@ -460,7 +460,11 @@ cursor: pointer;
         body: `product_id=${productId}&quantity=${quantity}&color=${color}&product_name=${productName}&product_price=${productPrice}&product_image=${productImage}`
     })
     .then(response => response.text())
-    .then(data => alert(data)) // Display server response
+    .then(data => {
+        alert("Item added to cart!");
+        // Update the cart count in the DOM
+        document.querySelector('.cart .text').textContent = `Cart(${data})`;
+    })
     .catch(error => console.error('Error:', error));
 }
     </script>

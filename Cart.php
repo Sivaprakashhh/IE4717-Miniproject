@@ -148,7 +148,7 @@ nav ul li a {
         <a href="Account.php"><div class="login"><img src="Images/Others/user.png" alt="User Icon" class="icon"><div class="text">User Profile</div></div></a>
     <?php else: ?>
         <a href="Login.php" style="text-decoration: none;">
-            <div class="login" style="margin-left:500px; margin-right:10px;">
+            <div class="login" style="margin-left:300px; margin-right:10px;">
                 <img src="Images/Others/user.png" alt="User Icon" class="icon">
                 <div class="text" style="font-size: 16px; color: black; margin-right:10px;">Login</div>
             </div>
